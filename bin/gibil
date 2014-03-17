@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'gibil'
+
+args = ARGV.dup
+if args[0] == 'schedule'
+  `whenever --update-crontab`
+  puts 'Chrontab updated:'
+  `crontab -l`
+else
+  Gibil::Notification.notify
+end

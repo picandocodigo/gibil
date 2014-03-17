@@ -1,8 +1,15 @@
-# Adds cronjob to notify you when the computer's temperature is high
+# Gibil
+  Gibil in Sumerian mythology is the god of fire
 
-It requires `acpi` installed on your system to get the temperature.
-Clone, `bundle install` and on the project root path run:
-`whenever --update-crontab`
+A gem to notify you of your computer's temperature using the system's
+notifications.
+
+```bash
+$ gem install gibil
+$ gibil          # Will notify you of your computer's temperature
+$ gibil schedule # Will add a crontab for notifying you when the
+                 # computer's temperature is too high
+```
 
 Tested on:
   * **Ubuntu 13.04** - Unity and Cinnamon 
@@ -12,8 +19,3 @@ Uses:
  * [libnotify](https://github.com/splattael/libnotify) - Ruby bindings
    for libnotify.
  * [whenever](https://github.com/javan/whenever) - Ruby gem that provides a clear syntax for writing and deploying cron jobs
-
-
-## TO DO
- * Add command to call whenever for updating cron tab
- * Convert to gem (?)
