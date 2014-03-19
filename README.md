@@ -12,10 +12,9 @@ $ gibil schedule # Will add a crontab for notifying you when the
 ```
 
 Tested on:
-  * **Ubuntu 13.04** - Unity and Cinnamon 
+  * **Ubuntu 13.04** - Unity and Cinnamon
   * **Debian Jessie** - Gnome 3
 
 Uses:
  * [libnotify](https://github.com/splattael/libnotify) - Ruby bindings
    for libnotify.
- * [whenever](https://github.com/javan/whenever) - Ruby gem that provides a clear syntax for writing and deploying cron jobs

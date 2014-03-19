@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'gibil'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.date = '2014-03-17'
   s.summary = 'A gem to notify you of system temperature'
   s.description = 'Show a notification of your computer\'s temperature. It can be programmed as a cronjob, so you can be notified when the temperature is high.'
@@ -10,8 +10,7 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/picandocodigo/gibil'
   s.licenses = ['GPL-3']
   s.executables << 'gibil'
-  s.add_runtime_dependency 'libnotify'
-  s.add_runtime_dependency 'whenever'
-  s.add_development_dependency 'minitest'
-  s.add_development_dependency 'rubocop'
+  s.add_runtime_dependency 'libnotify', '~> 0.8'
+  s.add_development_dependency 'minitest', '~> 5.3'
+  s.add_development_dependency 'rubocop', '~> 0.19'
 end

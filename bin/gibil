@@ -4,10 +4,12 @@
 require 'gibil'
 
 args = ARGV.dup
-if args[0] == 'schedule'
-  `whenever --update-crontab`
-  puts 'Chrontab updated:'
-  `crontab -l`
+
+case args[0]
+when 'schedule'
+  Gibil::Cronify.schedule
+when 'job'
+  Gibil::Notification.notify if Gibil::Sensor.temperature > 60
 else
   Gibil::Notification.notify
 end
