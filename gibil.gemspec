@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = 'gibil'
-  s.version = '0.0.2'
-  s.date = '2014-03-17'
+  s.version = '0.1.0'
+  s.date = '2014-04-10'
   s.summary = 'A gem to notify you of system temperature'
   s.description = 'Show a notification of your computer\'s temperature. It can be programmed as a cronjob, so you can be notified when the temperature is high.'
   s.authors = ['Fernando Briano']

@@ -8,7 +8,7 @@ module Gibil
     # == Returns:
     # A float value of the system's temperature
     def self.temperature
-      `cat /sys/class/hwmon/hwmon0/temp1_input`.to_f / 1000
+      File.read('/sys/class/hwmon/hwmon0/temp1_input').to_f / 1000
     end
   end
 
