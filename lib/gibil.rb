@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 require 'libnotify'
 
 module Gibil
@@ -19,13 +20,13 @@ module Gibil
       temp = Sensor.temperature
 
       n = Libnotify.new(
-                        summary: 'Temperature',
-                        body: "Your computer's temperature is now #{temp} °C",
-                        timeout: 1.5,
-                        append: true
-                        )
+        summary: 'Temperature',
+        body: "Your computer's temperature is now #{temp} °C",
+        timeout: 1.5,
+        append: true
+      )
 
-      n.urgency = (temp > 80) ? :critical : :normal
+      n.urgency = temp > 80 ? :critical : :normal
 
       n.show!
     end
@@ -59,10 +60,6 @@ module Gibil
         file.unlink
         exit(1)
       end
-    end
-
-    def self.temp_path(cron)
-      file.path
     end
   end
 end
