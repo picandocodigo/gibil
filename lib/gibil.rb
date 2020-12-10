@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-
 require 'libnotify'
+require 'find'
 
 module Gibil
   # Temperature Sensor interface.
@@ -9,7 +8,12 @@ module Gibil
     # == Returns:
     # A float value of the system's temperature
     def self.temperature
-      File.read('/sys/class/hwmon/hwmon0/temp1_input').to_f / 1000
+      Find.find('/sys/class/hwmon/') do |path|
+        Dir["#{path}/*"].select do |file|
+          return File.read(file).to_f / 1000 if file.match?(/temp[0-9]+_input/)
+        end
+      end
+      raise "couldn't read temperature"
     end
   end
 
@@ -36,11 +40,11 @@ module Gibil
   module Cronify
     # Tries to write the crontab and exits with the appropiate code
     def self.schedule
-      cron = <<-END.gsub(/^ {8}/, '')
+      cron = <<-CRON.gsub(/^ {8}/, '')
         # Gibil temperature notification
         0,10,20,30,40,50 * * * * /bin/bash -l -c 'gibil job'
         # End Gibil temperature notification
-      END
+      CRON
 
       require 'tempfile'
       file = Tempfile.new('temp_cronfile')

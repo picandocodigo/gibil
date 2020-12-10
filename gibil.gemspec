@@ -10,7 +10,9 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/picandocodigo/gibil'
   s.licenses = ['GPL-3.0']
   s.executables << 'gibil'
-  s.add_runtime_dependency 'libnotify', '~> 0.9.3'
+  s.add_runtime_dependency 'libnotify'
+  s.add_development_dependency 'byebug'
   s.add_development_dependency 'minitest', '~> 5.3'
-  s.add_development_dependency 'rubocop', '~> 0.47.1'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rubocop'
 end
