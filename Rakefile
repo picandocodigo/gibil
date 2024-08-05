@@ -7,7 +7,7 @@ task :test do
   require 'rubocop'
   cli = RuboCop::CLI.new
   cli.run(%w[lib test bin])
-  Dir.glob('./test/**/*_test.rb').sort.each { |file| require file }
+  Dir.glob('./test/**/*_test.rb').each { |file| require file }
 end
 
 desc 'Open an irb session preloaded with this library'
